@@ -18,5 +18,5 @@ app.register(jwt, {
 })
 
 app
-  .listen({ port: 3333 })
+  .listen({ port: 3333, host: '0.0.0.0' })
   .then(() => console.log(`👌 HTTP server on runner http://localhost:3333 `))
