@@ -1,25 +1,12 @@
-import { StatusBar } from 'expo-status-bar'
 import { useEffect } from 'react'
-import { ImageBackground, View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import { makeRedirectUri, useAuthRequest } from 'expo-auth-session'
-import { styled } from 'nativewind'
+
 import * as SecureStore from 'expo-secure-store'
 import { api } from '../src/lib/api'
 
-import {
-  useFonts,
-  Roboto_400Regular,
-  Roboto_700Bold,
-} from '@expo-google-fonts/roboto'
-
-import { BaiJamjuree_700Bold } from '@expo-google-fonts/bai-jamjuree'
-
-import blurBg from '../src/assets/blur.png'
-import Strips from '../src/assets/stripes.svg'
 import Logo from '../src/assets/logoSpaceTime.svg'
 import { useRouter } from 'expo-router'
-
-const StyledStripes = styled(Strips)
 
 const discovery = {
   authorizationEndpoint: 'https://github.com/login/oauth/authorize',
@@ -30,11 +17,7 @@ const discovery = {
 
 export default function App() {
   const router = useRouter()
-  const [hasLoadedFonts] = useFonts({
-    Roboto_400Regular,
-    Roboto_700Bold,
-    BaiJamjuree_700Bold,
-  })
+
   const [, response, signInWithGithub] = useAuthRequest(
     {
       clientId: '95f6670237418fc31a13',
@@ -72,18 +55,8 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [response])
 
-  if (!hasLoadedFonts) {
-    return null
-  }
-
   return (
-    <ImageBackground
-      source={blurBg}
-      imageStyle={{ position: 'absolute', left: '-100%' }}
-      className="relative flex-1 bg-gray-900 px-8 py-10"
-    >
-      <StyledStripes className="absolute left-1" />
-
+    <View className=" flex-1 px-8 py-10">
       <View className="flex-1 items-center justify-center gap-6 ">
         <Logo />
         <View className="space-y-2">
@@ -108,7 +81,6 @@ export default function App() {
       <Text className="text-center font-body text-sm leading-relaxed text-gray-200">
         Feito com 💜 no NLW da Rocketseat
       </Text>
-      <StatusBar style="light" />
-    </ImageBackground>
+    </View>
   )
 }
