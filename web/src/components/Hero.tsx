@@ -15,7 +15,8 @@ export default function Hero() {
           com o mundo!
         </p>
       </div>
-      <Link        className="text-sm  inline-block rounded-full bg-green-500 px-5 py-3 font-alt uppercase leading-none text-gray-900 hover:bg-green-600"
+      <Link
+        className="inline-block  rounded-full bg-green-500 px-5 py-3 font-alt text-sm uppercase leading-none text-gray-900 hover:bg-green-600"
         href="/memories/new"
       >
         CADASTRAR LEMBRANÇA

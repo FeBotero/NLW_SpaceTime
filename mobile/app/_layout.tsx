@@ -46,6 +46,7 @@ export default function Layout() {
         screenOptions={{
           headerShown: false,
           contentStyle: { backgroundColor: 'transparent' },
+          animation: 'fade',
         }}
       >
         {/* Neste redirect se tiver um usuario logado ele já redireciona para próxima rota. */}
